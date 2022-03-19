@@ -2,6 +2,10 @@ package se.itello.example.models;
 
 import java.math.BigDecimal;
 
+/*
+ * Representerar en betalningspost.
+ */
+
 public class PaymentPost {
 	private String Posttype;
 	private BigDecimal amount;

@@ -12,13 +12,30 @@ import se.itello.eample.payments.interfaces.IPaymentService;
 import se.itello.example.models.FilePayment;
 import se.itello.example.models.PaymentPost;
 
+
+/**
+ * Läser in textfiler med betalningar 
+ * Utför betalningar
+ * Skickar utförda betalningar till ett objekt som implementerar IPaymentReceiver.
+ * 
+ * 
+ */
+
 public class PaymentHandler {
 	 private IPaymentReceiver paymentReceiver;
 
 	 public PaymentHandler(IPaymentReceiver paymentReceiver) {
 		 this.paymentReceiver = paymentReceiver;
 	 }
-	 	    
+	
+	 /*
+	  *  Filnamnen ska bestå av "(Valfrittnamn)_"(Klassnamn)".
+	  *  Klassen ska finnas i packetet services och behöver implementera IPaymentService. 
+	  *  Det enda som behöver göras för att lägga till nya filtyper är att skapa en klass i services som implementerar IPaymentService.
+	  *  På så sätt behöver inte någon befintlig kod ändras.
+	  * 
+	  */
+ 
 	 public void ReadFilePayments(String fileName) throws IOException {
 	     List<String> FileRows = getFileRows(fileName);
 	     FilePayment payments = new FilePayment();  

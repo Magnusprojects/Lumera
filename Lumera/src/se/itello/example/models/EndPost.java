@@ -2,6 +2,10 @@ package se.itello.example.models;
 
 import java.math.BigDecimal;
 
+/*
+ * Representerar en slutpost.
+ */
+
 public class EndPost {
 	private BigDecimal amount;
 	private int NumberOfPaymentPosts;

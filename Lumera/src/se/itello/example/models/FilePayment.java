@@ -8,6 +8,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import se.itello.eample.payments.interfaces.IPaymentService;
+
+/*
+ * Representerar en hel fil med betalningar.
+ * Varje fil kommer att parsas till ett objekt av FilePayment från en klass som implementerar IPaymentService.
+ */
+
 public class FilePayment {
 
 	private OpeningPost openingPost = new OpeningPost();

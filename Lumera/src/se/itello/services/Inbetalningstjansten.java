@@ -7,6 +7,10 @@ import se.itello.eample.payments.interfaces.IPaymentService;
 import se.itello.example.models.FilePayment;
 import se.itello.example.models.PaymentPost;
 
+/*
+ * En implementation för att läsa in betalningar av filtypen inbetalningstjansten.
+ */
+
 public class Inbetalningstjansten implements IPaymentService {
 private FilePayment payments = new FilePayment();
 	

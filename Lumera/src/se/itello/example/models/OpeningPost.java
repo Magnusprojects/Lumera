@@ -4,6 +4,10 @@ import java.math.BigDecimal;
 
 import java.util.Date;
 
+/*
+ * Representerar en öppningspost.
+ */
+
 public class OpeningPost {
 	private String postType;
 	private String accountNumber;

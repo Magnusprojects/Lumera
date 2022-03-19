@@ -12,6 +12,11 @@ import se.itello.example.models.FilePayment;
 import se.itello.example.models.OpeningPost;
 import se.itello.example.models.PaymentPost;
 
+/*
+ * En implementation för att läsa in betalningar av filtypen betalningstjansten.
+ */
+
+
 public class Betalningsservice implements IPaymentService {
 	private FilePayment payments = new FilePayment();
 	
