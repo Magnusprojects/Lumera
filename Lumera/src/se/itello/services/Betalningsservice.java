@@ -13,7 +13,7 @@ import se.itello.example.models.OpeningPost;
 import se.itello.example.models.PaymentPost;
 
 /*
- * En implementation för att läsa in betalningar av filtypen betalningstjansten.
+ * En implementation för att läsa in betalningar av filtypen betalningsservice.
  */
 
 
@@ -23,7 +23,6 @@ public class Betalningsservice implements IPaymentService {
 	private static final String OPENINGPOST = "O";
 	private static final String PAYMENTPOST = "B";
 
-	
 	@Override
 	public FilePayment parsePayments(List<String> fileRows) throws ParseException, Exception{
 		ParseOpeningLine(fileRows.get(0));
@@ -69,9 +68,10 @@ public class Betalningsservice implements IPaymentService {
 		}else
 			throw new Exception("Invalid PostType for openingpost");
 	}
-	   
 
-	
-	
+	public FilePayment getPayments() {
+		return payments;
+	}
+
 	
 }

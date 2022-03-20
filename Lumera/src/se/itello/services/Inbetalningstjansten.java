@@ -62,6 +62,11 @@ private FilePayment payments = new FilePayment();
 				break;			
 		}
 	}
+	
+	public FilePayment getPayments() {
+		return payments;
+	}
+
 
 
 }

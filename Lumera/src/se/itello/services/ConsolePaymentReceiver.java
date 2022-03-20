@@ -10,7 +10,6 @@ import se.itello.eample.payments.interfaces.IPaymentReceiver;
 
 /*
  * En implementation som visar hur inkommande betalningar ska hanteras. 
- * 
  */
 
 public class ConsolePaymentReceiver implements IPaymentReceiver{

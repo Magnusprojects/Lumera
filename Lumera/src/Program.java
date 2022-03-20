@@ -7,7 +7,7 @@ import se.itello.services.PaymentHandler;
 public class Program {
 
 	//Anger vilken klass som ska emot och hantera betalningar.
-	//Denna implementation kan enkelt ändras genom att skapa ny klass som implementerar IPaymentReceiver och instansiera den nya klassen nedanför.
+	//Denna implementation kan enkelt ändras genom att skapa ny klass som implementerar IPaymentReceiver och instansiera ett objekt med den nya klassen nedanför.
 	static IPaymentReceiver paymentReceiver = new ConsolePaymentReceiver();	
 	
 	public static void main(String args[]) {

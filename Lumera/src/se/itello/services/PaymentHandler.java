@@ -11,14 +11,13 @@ import se.itello.eample.payments.interfaces.IPaymentReceiver;
 import se.itello.eample.payments.interfaces.IPaymentService;
 import se.itello.example.models.FilePayment;
 import se.itello.example.models.PaymentPost;
+import se.itello.helper.FileHelper;
 
 
 /**
  * Läser in textfiler med betalningar 
  * Utför betalningar
  * Skickar utförda betalningar till ett objekt som implementerar IPaymentReceiver.
- * 
- * 
  */
 
 public class PaymentHandler {
@@ -30,14 +29,13 @@ public class PaymentHandler {
 	
 	 /*
 	  *  Filnamnen ska bestå av "(Valfrittnamn)_"(Klassnamn)".
-	  *  Klassen ska finnas i packetet services och behöver implementera IPaymentService. 
-	  *  Det enda som behöver göras för att lägga till nya filtyper är att skapa en klass i services som implementerar IPaymentService.
+	  *  Klassen ska finnas i paketet services och behöver implementera IPaymentService. 
+	  *  Det enda som behöver göras för att lägga till nya filtyper är att skapa en klass i paketet services som implementerar IPaymentService.
 	  *  På så sätt behöver inte någon befintlig kod ändras.
-	  * 
 	  */
  
 	 public void ReadFilePayments(String fileName) throws IOException {
-	     List<String> FileRows = getFileRows(fileName);
+	     List<String> FileRows = FileHelper.getFileRows(fileName);
 	     FilePayment payments = new FilePayment();  
 	     String className = getServiceClassName(fileName);
 	     
@@ -57,24 +55,8 @@ public class PaymentHandler {
 		 className = className.substring(0, className.lastIndexOf('.'));		     
 		 return className.substring(0, 1).toUpperCase() + className.substring(1);		 	  
 	  }
-
-	private List<String> getFileRows(String fileName) throws IOException {
-	        BufferedReader file = new BufferedReader(new FileReader(fileName));
-	        List<String> paymentRows = new ArrayList<>();
-	        
-	        boolean fileEnd = false;
-	        while (!fileEnd){
-	            String row = file.readLine();
-	            if(row == null)
-	                fileEnd = true;
-	            else
-	            	paymentRows.add(row);
-	        }
-	        file.close();
-	        return paymentRows;
-	    }
-	    
-	   private void ExecutePayment(FilePayment payments) {		   
+	  
+	  private void ExecutePayment(FilePayment payments) {		   
 	        paymentReceiver.startPaymentBundle(payments.getAccountNumber(), payments.getPaymentDate(), payments.getCurrency());  
 	        for (PaymentPost paymentPost: payments.getPaymentPosts()) {
 	            paymentReceiver.payment(paymentPost.getAmount(), paymentPost.getReference());
